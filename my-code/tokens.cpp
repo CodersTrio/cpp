@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-
-    string st = "sum = num1 + num2 + num3 - num4 * num5";
+    /// sum = num1 + num2 + num3 - num4 * num5
+    string st = "sum = sum + num";
     string newSt="";
 
     for(int i=0; i<st.size(); i++)
@@ -14,6 +14,7 @@ int main()
         if(st[i]!=' ')
             newSt+=st[i];
     }
+
     newSt+='*';
 
     map<string, string> mp;
@@ -26,16 +27,13 @@ int main()
     {
         if(newSt[i]=='+' or newSt[i]=='-' or newSt[i]=='*' or newSt[i]=='/' or newSt[i]=='=')
         {
-            if(mp.find(subSt)== mp.end())
+            if(mp[subSt]=="")
             {
-                if(mp[subSt]=="")
-                {
-                    mp[subSt]="id";
-                    mp[subSt]+=cntSt;
-                    cntSt++;
-                }
-                v.push_back(subSt);
+                mp[subSt]="id";
+                mp[subSt]+=cntSt;
+                cntSt++;
             }
+            v.push_back(subSt);
 
             opSt += newSt[i];
             if(mp[opSt]=="")
@@ -44,6 +42,7 @@ int main()
                 mp[opSt]+=cntOp;
                 cntOp++;
             }
+
             if(i!=newSt.size()-1)
                 v.push_back(opSt);
 
