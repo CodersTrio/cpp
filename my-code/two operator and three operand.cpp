@@ -3,10 +3,7 @@ using namespace std;
 
 int main()
 {
-
-
-
-    string s="10-2-5";
+    string s="10+2*5";
 
     int a=0, b=0, c=0, pos1=-1, pos2=-1;
 
@@ -35,7 +32,6 @@ int main()
     {
         c = c*10 + (s[i]-'0');
     }
-
 
     int res=0;
 
